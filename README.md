@@ -46,8 +46,8 @@ Edit `config.json` with your settings:
 ### Optional Fields
 
 - **`queue_file`**: Queue storage file (default: "queue.txt")
-- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 10)
-- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 60)
+- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 5)
+- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 30)
 - **`max_retries`**: Maximum retry attempts for failed requests (default: 3)
 - **`request_timeout`**: HTTP request timeout in seconds (default: 30)
 - **`max_queue_size`**: Maximum queue size limit (default: 10000)
