@@ -689,7 +689,7 @@ class RobloxAllySender:
                    
                    if self.queue_manager.get_size() > 0:
                        current_cookie = self.cookie.get_current()
-                       base_delay = max(30 / len(self.config.get('cookies')), self.config.get('min_delay_between_requests', 10))
+                       base_delay = max(self.config.get('max_delay_between_requests', 60) / len(self.config.get('cookies')), self.config.get('min_delay_between_requests', 10))
                        delay = current_cookie.calculate_backoff_delay(
                            base_delay,
                            self.config.get('min_delay_between_requests', 10),
