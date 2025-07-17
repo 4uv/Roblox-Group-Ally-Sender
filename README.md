@@ -138,7 +138,7 @@ The script's performance scales with the number of cookies provided:
 - Never share your Roblox cookies with others
 - Use secure webhook URLs
 - Monitor the logs for unusual activity
-- Consider using dedicated accounts for automation
+- Consider using dedicated accounts for automation, basically make fresh new accounts and give them a role in your group that only allows them to send ally request
 
 ## Troubleshooting
 
