@@ -39,6 +39,7 @@ Edit `config.json` with your settings:
 ### Required Fields
 
 - **`cookies`**: Array of Roblox authentication cookies (.ROBLOSECURITY values)
+  - **Performance Note**: The more cookies you provide, the faster the script will run as it can distribute requests across multiple accounts, reducing individual account rate limits
 - **`webhook`**: Discord webhook URL for notifications
 - **`group_id`**: Your group ID that will send ally requests
 - **`already_added_file`**: File to track processed groups (e.g., "already_added.txt")
@@ -46,8 +47,8 @@ Edit `config.json` with your settings:
 ### Optional Fields
 
 - **`queue_file`**: Queue storage file (default: "queue.txt")
-- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 5)
-- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 30)
+- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 10)
+- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 60)
 - **`max_retries`**: Maximum retry attempts for failed requests (default: 3)
 - **`request_timeout`**: HTTP request timeout in seconds (default: 30)
 - **`max_queue_size`**: Maximum queue size limit (default: 10000)
@@ -107,7 +108,7 @@ The application runs continuously and will:
 
 Press `Ctrl+C` to stop gracefully.
 
-## Rate Limiting
+## Rate Limiting & Performance
 
 The application implements several rate limiting mechanisms:
 - Configurable delays between requests
@@ -115,6 +116,12 @@ The application implements several rate limiting mechanisms:
 - Multi-account rotation
 - Circuit breaker pattern
 - Request timeout handling
+
+### Performance Scaling
+The script's performance scales with the number of cookies provided:
+- **Single account**: Limited by individual rate limits
+- **Multiple accounts**: Requests distributed across accounts, significantly faster processing
+- **Optimal setup**: 3-5 accounts typically provide the best balance of speed and manageability
 
 ## Error Handling
 
@@ -128,6 +135,7 @@ The application implements several rate limiting mechanisms:
 
 - Never share your Roblox cookies with others
 - Use secure webhook URLs
+- Monitor the logs for unusual activity
 - Consider using dedicated accounts for automation
 
 ## Troubleshooting
