@@ -1,4 +1,4 @@
-# Roblox Group Ally Request System
+# Roblox Group Ally Request System (shoutout Claude)
 
 A Python application that automatically discovers and sends ally requests to Roblox groups using official Roblox APIs.
 
