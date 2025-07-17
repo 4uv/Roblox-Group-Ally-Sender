@@ -1,0 +1,18 @@
+{
+    "cookies": [
+        "your_roblox_cookie_here",
+        "additional_cookie_if_needed"
+    ],
+    "webhook": "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN",
+    "group_id": "your_group_id_here",
+    "already_added_file": "already_added.txt",
+    "queue_file": "queue.txt",
+    "min_delay_between_requests": 5,
+    "max_delay_between_requests": 30,
+    "max_retries": 3,
+    "request_timeout": 30,
+    "max_queue_size": 10000,
+    "circuit_breaker_threshold": 5,
+    "circuit_breaker_timeout": 300,
+    "log_level": "INFO"
+}
