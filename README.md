@@ -47,8 +47,8 @@ Edit `config.json` with your settings:
 ### Optional Fields
 
 - **`queue_file`**: Queue storage file (default: "queue.txt")
-- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 5)
-- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 30)
+- **`min_delay_between_requests`**: Minimum delay between requests in seconds (default: 10)
+- **`max_delay_between_requests`**: Maximum delay between requests in seconds (default: 60)
 - **`max_retries`**: Maximum retry attempts for failed requests (default: 3)
 - **`request_timeout`**: HTTP request timeout in seconds (default: 30)
 - **`max_queue_size`**: Maximum queue size limit (default: 10000)
@@ -121,6 +121,8 @@ The application implements several rate limiting mechanisms:
 The script's performance scales with the number of cookies provided:
 - **Single account**: Limited by individual rate limits
 - **Multiple accounts**: Requests distributed across accounts, significantly faster processing
+- **More accounts = More requests per minute**: Base delay is calculated as `max_delay_between_requests ÷ number_of_accounts`
+- **Example**: With 60s max delay and 3 accounts, base delay becomes 20s per account cycle
 - **Optimal setup**: 3-5 accounts typically provide the best balance of speed and manageability
 
 ## Error Handling
