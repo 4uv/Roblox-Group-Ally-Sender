@@ -488,7 +488,9 @@ class RobloxAllySender:
 
    def scrape_assets(self):
        try:
-           url = f"https://catalog.roblox.com/v1/search/items?category=Clothing&limit=120&salesTypeFilter=1&sortType=3&subcategory=ClassicShirts"
+           clothing_types = ["ClassicShirts", "ClassicPants"]
+           chosen_type = random.choice(clothing_types)
+           url = f"https://catalog.roblox.com/v1/search/items?category=Clothing&limit=120&salesTypeFilter=1&sortType=3&subcategory={chosen_type}"
            if self.current_cursor:
                url += f"&cursor={self.current_cursor}"
            
@@ -504,7 +506,7 @@ class RobloxAllySender:
            data = response.json()
            self.current_cursor = data.get("nextPageCursor", "")
            
-           logger.info(f"Scraped {len(data['data'])} assets")
+           logger.info(f"Scraped {len(data['data'])} assets from {chosen_type}")
            return [item['id'] for item in data["data"]]
            
        except requests.RequestException as e:
